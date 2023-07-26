@@ -8,4 +8,19 @@
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <None Remove="Pages\Home\" />
+    <None Remove="Pages\Projects\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\Home\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="Pages\Projects\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MudBlazor" Version="6.7.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\images\" />
+  </ItemGroup>
 </Project>
