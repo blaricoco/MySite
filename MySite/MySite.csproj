@@ -11,14 +11,17 @@
   <ItemGroup>
     <None Remove="Pages\Home\" />
     <None Remove="Pages\Projects\" />
+    <None Remove="Pages\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\Home\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="Pages\Projects\" />
+    <Folder Include="Pages\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MudBlazor" Version="6.7.0" />
+    <PackageReference Include="CodeBeam.MudExtensions" Version="6.3.0" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\" />

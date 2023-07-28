@@ -1,9 +1,26 @@
 ﻿<MudNavMenu>
-    <MudNavLink Href="/" Match="NavLinkMatch.All">Dashboard</MudNavLink>
-    <MudNavLink Href="/servers" Match="NavLinkMatch.Prefix">Servers</MudNavLink>
-    <MudNavGroup Title="Settings" Expanded="true">
-        <MudNavLink Href="/users" Match="NavLinkMatch.Prefix">Users</MudNavLink>
-        <MudNavLink Href="/security" Match="NavLinkMatch.Prefix">Security</MudNavLink>
+    <MudImage Src="images/MSite_logo.png" Height="200" ObjectPosition="ObjectPosition.Center"/>
+    <MudNavLink Href="/"
+                Match="NavLinkMatch.All"
+                Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
+    <MudNavLink Href="/Profile"
+                Match="NavLinkMatch.All"
+                Icon="@Icons.Material.Filled.People">Profile</MudNavLink>
+    <MudNavLink Href="/Projects"
+                Match="NavLinkMatch.Prefix"
+                Icon="@Icons.Material.Filled.Folder">Projects</MudNavLink>
+    <MudNavGroup Title="Settings"
+                 Expanded="true"
+                 Icon="@Icons.Material.Filled.Settings">
+        <MudNavLink
+                    Href="/Account"
+                    Match="NavLinkMatch.Prefix"
+                    Icon="@Icons.Material.Filled.ManageAccounts">Account</MudNavLink>
+        <MudNavLink Href="/Security"
+                    Match="NavLinkMatch.Prefix"
+                    Icon="@Icons.Material.Filled.Security">Security</MudNavLink>
     </MudNavGroup>
-    <MudNavLink Href="/about" Match="NavLinkMatch.Prefix">About</MudNavLink>
+    <MudNavLink Href="/about"
+                Match="NavLinkMatch.Prefix"
+                Icon="@Icons.Material.Filled.QuestionMark">About</MudNavLink>
 </MudNavMenu>
