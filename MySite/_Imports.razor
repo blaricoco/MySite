@@ -1,4 +1,5 @@
 ﻿@using System.Net.Http
+@using System.ComponentModel.DataAnnotations
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Components.Forms
@@ -6,6 +7,18 @@
 @using Microsoft.AspNetCore.Components.Web
 @using Microsoft.AspNetCore.Components.Web.Virtualization
 @using Microsoft.JSInterop
-@using MySite
-@using MySite.Shared
-
+@using Microsoft.EntityFrameworkCore
+@using Spark
+@using MySite.Pages.Shared
+@using MySite.Application.Services
+@using MySite.Application.Services.Auth
+@using MySite.Application.Models
+@using MySite.Application.Mail
+@using MySite.Application.Database
+@using MySite.Application.Jobs
+@using Spark.Library.Logging
+@using Spark.Library.Mail
+@using Spark.Library.Extensions
+@using Spark.Library.Environment
+@using Coravel.Queuing.Interfaces;
+@using Coravel.Events.Interfaces;
