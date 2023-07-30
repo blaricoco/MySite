@@ -399,3 +399,5 @@ FodyWeavers.xsd
 
 # Spark
 spark.db*
+.env*
+Storage
