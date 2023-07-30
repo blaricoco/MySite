@@ -6,10 +6,10 @@
 <MudSnackbarProvider/>
 
 <MudLayout>
-    @*<MudAppBar>
+    <MudAppBar Color="Color.Transparent" >
         <MudIconButton Icon="@Icons.Material.Filled.Menu"
                        Color="Color.Inherit"
-                       Edge="Edge.Start"
+                       Edge="Edge.End"
                        OnClick="@((e) => DrawerToggle())"/>
         Menu
         <MudIconButton Icon="@Icons.Material.Filled.Home"
@@ -20,10 +20,10 @@
                        Color="Color.Inherit"
                        Href="/Projects" />
         Projects
-    </MudAppBar>*@
-    <MudDrawer @bind-Open="@_drawerOpen">
+    </MudAppBar>
+    @*<MudDrawer @bind-Open="@_drawerOpen">
         <NavMenu/>
-    </MudDrawer>
+    </MudDrawer>*@
     <MudMainContent>
         <MudContainer MaxWidth="MaxWidth.Large">
             @Body
