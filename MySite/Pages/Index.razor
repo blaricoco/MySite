@@ -1,12 +1,13 @@
 ﻿@page "/"
 @inject ILogger logger
+@inject IJSRuntime JSRuntime
 
 <PageTitle>Home page</PageTitle>
 
 <section class="mx-auto max-w-6xl bg-white mb-20">
     <article class="my-6 sm:my-20 px-6 py-12 sm:py-20 sm:px-12 shadow-lg rounded-lg text-left">
         <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-8 sm:mb-20">
-            Build something beautiful
+            MSite
         </h1>
         <p class="text-base sm:text-xl text-gray-600 mb-6">
             Spark picks up where ASP.NET leaves off. Build production ready, full-stack web applications fast.
@@ -14,12 +15,71 @@
         <p class="text-base sm:text-xl text-gray-600 mb-6">
             View the <a class="text-indigo-600 font-semibold hover:underline" href="https://spark-framework.net" target="_blank">documentation →</a>
         </p>
+        <div id="map" style="width:800px ;height:600px;"></div>
+
+        @*<igc-radial-gauge id="rg" height="400px" width="400px" value="25" interval="5" minimum-value="0" maximum-value="100">
+            <igc-radial-gauge-range start-value="0" end-value="30" brush="red"></igc-radial-gauge-range>
+            <igc-radial-gauge-range start-value="30" end-value="60" brush="yellow"></igc-radial-gauge-range>
+            <igc-radial-gauge-range start-value="60" end-value="100" brush="green"></igc-radial-gauge-range>
+        </igc-radial-gauge>
+
+        <button @onclick="OnClick">Update Value</button>*@
+
     </article>
+    
 </section>
+
+
 @code {
+    private IJSObjectReference? module;
+    private string? result;
 
     protected override async Task OnInitializedAsync()
     {
         logger.Information($"Initialized at {DateTime.Now}");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        string geojsonFeature = $@"[{{
+    ""type"": ""Feature"",
+    ""properties"": {{""party"": ""Republican""}},
+    ""geometry"": {{
+        ""type"": ""Polygon"",
+        ""coordinates"": [[
+            [-104.05, 48.99],
+            [-97.22,  48.98],
+            [-96.58,  45.94],
+            [-104.03, 45.94],
+            [-104.05, 48.99]
+        ]]
+    }}
+}}, {{
+    ""type"": ""Feature"",
+    ""properties"": {{""party"": ""Democrat""}},
+    ""geometry"": {{
+        ""type"": ""Polygon"",
+        ""coordinates"": [[
+            [-109.05, 41.00],
+            [-102.06, 40.99],
+            [-102.03, 36.99],
+            [-109.04, 36.99],
+            [-109.05, 41.00]
+        ]]
+    }}
+}}]";
+        if (firstRender)
+        {
+            module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./leafletmap.js");
+            if(module != null)
+            {
+                result = await module.InvokeAsync<string>("load_map", geojsonFeature);
+            }
+        }
+    }
+
+    async void OnClick()
+    {
+        await JSRuntime.InvokeVoidAsync("updateValue", 60);
     }
 }
