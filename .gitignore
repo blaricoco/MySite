@@ -401,3 +401,9 @@ FodyWeavers.xsd
 spark.db*
 .env*
 Storage
+
+# VS Code
+.vscode
+
+# Node virtual environment 
+env
