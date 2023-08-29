@@ -1,0 +1,18 @@
+﻿@page "/halfpage"
+
+<div class="half-page">
+    @ChildContent
+</div>
+
+<style>
+    .half-page {
+        width: 50%;
+        height: 100vh;
+        background-color: lightgray;
+        float: left;
+    }
+</style>
+
+@code {
+    [Parameter] public RenderFragment ChildContent { get; set; }
+}

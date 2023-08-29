@@ -15,11 +15,16 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Spark.Library" Version="0.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Application\Database\Migrations\" />
 	<Folder Include="Storage\Logging\" />
+	<Folder Include="Pages\Components\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Pages\Components\" />
   </ItemGroup>
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     <Exec Command="npm install" WorkingDirectory="NpmJS" />
